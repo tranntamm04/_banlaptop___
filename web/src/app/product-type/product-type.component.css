@@ -69,6 +69,7 @@ h2 {
   padding: 10px 20px;
   font-weight: 500;
   transition: all 0.3s ease;
+  margin: 10px 0;
 }
 
 .btn-primary {
@@ -188,4 +189,8 @@ form {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.btn + .btn {
+  margin-left: 10px;
 }

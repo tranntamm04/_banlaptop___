@@ -1,4 +1,240 @@
-td {
-  text-align: center;
+/* Font & nền */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
 }
- 
+
+/* Container chính */
+.container-fluid {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Tiêu đề */
+h2.text-center {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+/* Form tìm kiếm */
+form.row.mt-3 {
+  max-width: 1300px;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.col-form-label {
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.form-control.border-primary {
+  padding: 8px 12px;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box; /* Đảm bảo không tràn */
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2980b9;
+}
+
+/* Nút tìm kiếm */
+.btn-outline-success {
+  padding: 8px 16px;
+  border: 1px solid #27ae60;
+  color: #27ae60;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.btn-outline-success:hover {
+  background: #27ae60;
+  color: white;
+}
+
+/* Nút tạo mới */
+.btn-primary {
+  padding: 8px 16px;
+  background: #3498db;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2980b9;
+}
+
+/* Bảng */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table thead {
+  background: #3498db;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  word-break: break-word; /* Đảm bảo không cắt chữ */
+  max-width: 200px; /* Giới hạn chiều rộng cột */
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background: #f8f9fa;
+}
+
+/* Hình ảnh */
+.table td img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Nút hành động */
+.btn-outline-info,
+.btn-outline-warning,
+.btn-outline-danger {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 0 4px;
+  border: none; /* Giữ đúng HTML border-0 */
+}
+
+.btn-outline-info {
+  color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+  background: #17a2b8;
+  color: white;
+}
+
+.btn-outline-warning {
+  color: #f1c40f;
+}
+
+.btn-outline-warning:hover {
+  background: #f1c40f;
+  color: white;
+}
+
+.btn-outline-danger {
+  color: #e74c3c;
+}
+
+.btn-outline-danger:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+/* Giá */
+.text-danger {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+/* Phân trang */
+.pagination {
+  margin: 20px 0;
+  justify-content: flex-end;
+}
+
+.page-link {
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #3498db;
+  border: 1px solid #e0e0e0;
+  margin: 0 3px;
+}
+
+.page-item.active .page-link {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.page-link:hover {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 10px;
+  }
+
+  h2.text-center {
+    font-size: 1.5rem;
+  }
+
+  form.row.mt-3 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .col-form-label {
+    text-align: left;
+    margin-bottom: 8px;
+    margin-left: 0 !important; /* Ghi đè inline style */
+  }
+
+  .form-control.border-primary,
+  .btn-outline-success,
+  .btn-primary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 0.9rem;
+    max-width: 100px; /* Thu hẹp cột trên mobile */
+  }
+
+  .table td img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .btn-outline-info,
+  .btn-outline-warning,
+  .btn-outline-danger {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+}

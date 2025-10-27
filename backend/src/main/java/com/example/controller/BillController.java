@@ -36,7 +36,7 @@ public class BillController {
     ContractDetailService contractDetailService;
 
     @RequestMapping(value = "/listBill", method = RequestMethod.GET)
-    public ResponseEntity<Page<Bill>> getAllBill(@PageableDefault(size = 6) Pageable pageable) {
+    public ResponseEntity<Page<Bill>> getAllBill(@PageableDefault(size = 10) Pageable pageable) {
         Page<Bill> bills = billService.getAllBill(pageable);
         if (bills.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -121,21 +121,25 @@
     </div>
   </div>
 
-  <!-- GỢI Ý SẢN PHẨM CÙNG LOẠI -->
   <div class="related-section">
     <h3>Sản phẩm cùng loại ({{ product.nameType || '—' }})</h3>
     <div class="related-grid">
       <div class="related-item" *ngFor="let p of relatedProducts">
-        <a [routerLink]="['/viewProduct', p.idProduct]" class="thumb">
+        <a (click)="loadProduct(p.idProduct)" class="thumb" style="cursor:pointer">
           <img [src]="'assets/img/' + p.avt" alt="{{ p.productName }}">
         </a>
-        <a [routerLink]="['/viewProduct', p.idProduct]" class="name">{{ p.productName }}</a>
+        <a (click)="loadProduct(p.idProduct)" class="name" style="cursor:pointer">
+          {{ p.productName }}
+        </a>
         <div class="price">{{ numToString(p.price) }}đ</div>
-        <button type="button" (click)="add(p.idProduct, p.productName, p.price, p.avt)"> Thêm vào giỏ </button>
+        <button type="button" (click)="add(p.idProduct, p.productName, p.price, p.avt)">
+          Thêm vào giỏ
+        </button>
       </div>
-      <div class="empty" *ngIf="relatedProducts.length === 0"> Chưa có sản phẩm tương tự để gợi ý. </div>
     </div>
   </div>
+
+
 </div>
 
 <app-footer></app-footer>

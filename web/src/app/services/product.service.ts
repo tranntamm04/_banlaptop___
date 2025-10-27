@@ -77,7 +77,8 @@ export class ProductService {
   // Trả về mảng IProductDTO (map từ content nếu BE trả Page).
   getByCategoryPublic(tag: string): Observable<IProductDTO[]> {
     return this.http
-      .get<any>(this.API + '/searchTag?itemSearch=' + encodeURIComponent(tag))
+      .get<any>(this.API + '/searchTag?t=' + encodeURIComponent(tag))
       .pipe(map((rs) => (Array.isArray(rs) ? rs : rs?.content ?? [])));
   }
+  
 }

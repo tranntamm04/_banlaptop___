@@ -16,13 +16,7 @@
 
       <div class="tags mt-2">
         <strong>Từ khóa: </strong>
-        <button
-          class="border-0"
-          *ngFor="let t of tag"
-          (click)="searchTag(t)"
-        >
-          {{ t + " " }} &nbsp;
-        </button>
+        <button class="border-0" *ngFor="let t of tag" (click)="searchTag(t)">{{ t + " " }} &nbsp;</button>
       </div>
     </div>
   </div>

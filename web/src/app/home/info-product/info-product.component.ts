@@ -62,51 +62,65 @@ export class InfoProductComponent implements OnInit {
     private loginService: LoginService,
     private titleService: Title,
     private customerService: CustomerService
-  ) {}
+  ) {this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+}
 
   ngOnInit(): void {
-    this.titleService.setTitle('Chi Tiết Giỏ Hàng');
-    this.name = this.loginService.getUserName();
-    this.totalItem = this.cartService.getSoLuongGioHang();
-    this.activatedRoute.paramMap.subscribe((paramMap) => {
-      this.id = Number(paramMap.get('id'));
+  this.titleService.setTitle('Chi Tiết Giỏ Hàng');
+  this.name = this.loginService.getUserName();
+  this.totalItem = this.cartService.getSoLuongGioHang();
+  
 
-      // chi tiết
-      this.productService.getProductById(this.id).subscribe((data) => {
-        this.product = data;
+  this.activatedRoute.paramMap.subscribe((paramMap) => {
+    const newId = Number(paramMap.get('id')); 
 
-        // gợi ý theo danh mục public
-        const tag = this.product.nameType || '';
-        if (tag) {
-          this.productService.getByCategoryPublic(tag).subscribe((list) => {
-            this.relatedProducts = (list || [])
-              .filter((p) => p.idProduct !== this.product.idProduct)
-              .slice(0, 8);
-          });
-        } else {
-          this.relatedProducts = [];
-        }
-      });
-
-      // bình luận
-      this.productService.getAllBinhLuan(this.id).subscribe((data) => {
-        this.listBl = data;
-      });
-    });
-
-    // form đánh giá
-    this.createE = new FormGroup({
-      numOfStar: new FormControl(''),
-      comment: new FormControl(''),
-    });
-
-    // user info
-    if (this.name !== '') {
-      this.customerService.getCustomerUser(this.name).subscribe((data) => {
-        this.accountCustomer = data;
-      });
+    // Cuộn lên đầu
+    if (this.id === newId) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
     }
+
+    // Cuộn lên trên
+    this.id = newId;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Load chi tiết sản phẩm
+    this.productService.getProductById(this.id).subscribe((data) => {
+      this.product = data;
+
+      // Gợi ý theo danh mục public
+      const tag = this.product.nameType || '';
+      if (tag) {
+        this.productService.getByCategoryPublic(tag).subscribe((list) => {
+          this.relatedProducts = (list || [])
+            .filter((p) => p.idProduct !== this.product.idProduct)
+            .slice(0, 8);
+        });
+      } else {
+        this.relatedProducts = [];
+      }
+    });
+
+    // Bình luận
+    this.productService.getAllBinhLuan(this.id).subscribe((data) => {
+      this.listBl = data;
+    });
+  });
+
+  // Form đánh giá
+  this.createE = new FormGroup({
+    numOfStar: new FormControl(''),
+    comment: new FormControl(''),
+  });
+
+  // Thông tin user
+  if (this.name !== '') {
+    this.customerService.getCustomerUser(this.name).subscribe((data) => {
+      this.accountCustomer = data;
+    });
   }
+}
+
   
   add(p: number, productName: string, price: number, avt: string) {
     this.cartService.addToGioHang(p, productName, price, avt);
@@ -148,6 +162,36 @@ export class InfoProductComponent implements OnInit {
     this.productService.createEvaluate(this.evaluate).subscribe(() => {
       this.alertService.showAlertSuccess('Cảm ơn bạn đã đánh giá!');
       this.ngOnInit();
+    });
+  }
+  
+  loadProduct(id: number) {
+    // Cuộn lên đầu trang cho mượt
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Gọi lại API để lấy thông tin sản phẩm mới
+    this.productService.getProductById(id).subscribe((data) => {
+      this.product = data;
+
+      // Lấy danh sách sản phẩm cùng loại
+      const tag = this.product.nameType || '';
+      if (tag) {
+        this.productService.getByCategoryPublic(tag).subscribe((list) => {
+          this.relatedProducts = (list || [])
+            .filter((p) => p.idProduct !== this.product.idProduct)
+            .slice(0, 8);
+        });
+      } else {
+        this.relatedProducts = [];
+      }
+
+      // Lấy lại bình luận
+      this.productService.getAllBinhLuan(id).subscribe((data) => {
+        this.listBl = data;
+      });
+
+      // Cập nhật ID trên URL 
+      this.router.navigate(['/info-product', id], { replaceUrl: true });
     });
   }
 }

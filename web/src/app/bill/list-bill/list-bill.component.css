@@ -1,40 +1,220 @@
-td {
-  text-align: center;
-}
-.tooltip { 
-  position: relative;
-  display: inline-block;
+/* ===== Font & Nền ===== */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 50px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
+/* ===== Container chính ===== */
+.container-fluid {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* ===== Tiêu đề ===== */
+h3.text-center {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #3498db;
+}
+
+/* ===== Form tìm kiếm ===== */
+form.row.mt-3 {
+  max-width: 1200px;
+  margin: 25px auto;
+  align-items: center;
+}
+
+.col-form-label {
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+  text-align: right;
+  padding-right: 10px;
+}
+
+.form-control.border-primary {
+  border: 1px solid #3498db;
   border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 21;
-  bottom: -150%;
-  left: 50%;
-  margin-left: -25px;
-  opacity: 0;
-  transition: opacity 0.3s;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  transition: 0.3s;
 }
 
-.tooltip .tooltiptext::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent #555 transparent;
+.form-control.border-primary:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.5);
 }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+/* ===== Nút tìm kiếm ===== */
+.btn-outline-success {
+  padding: 8px 16px;
+  border: 1px solid #27ae60;
+  color: #27ae60;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-outline-success:hover {
+  background: #27ae60;
+  color: white;
+}
+
+/* ===== Bảng danh sách ===== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.table thead {
+  background: #3498db;
+  color: white;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  word-break: break-word;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background: #f9fbfd;
+}
+
+.table-hover tbody tr:hover {
+  background: #ecf6ff;
+  transition: background-color 0.3s ease;
+}
+
+/* ===== Cột trạng thái ===== */
+td[style*="color: #ffed26"],
+td[style*="color: #3fb846"] {
+  font-weight: 600;
+}
+
+/* ===== Cột tổng tiền ===== */
+.text-danger {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+/* ===== Nút hành động ===== */
+.btn {
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-warning {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #e67e22;
+}
+
+.btn-outline-success {
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+.btn-outline-success:hover {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+/* ===== Phân trang ===== */
+.pagination {
+  margin: 25px 0;
+  justify-content: center;
+}
+
+.page-link {
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #3498db;
+  border: 1px solid #e0e0e0;
+  margin: 0 3px;
+  transition: 0.3s;
+}
+
+.page-item.active .page-link {
+  background: #3498db;
+  border-color: #3498db;
+  color: white;
+}
+
+.page-link:hover {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .container-fluid {
+    padding: 0 10px;
+  }
+
+  h3.text-center {
+    font-size: 1.5rem;
+  }
+
+  form.row.mt-3 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .col-form-label {
+    text-align: left;
+    margin-bottom: 8px;
+    margin-left: 0 !important;
+  }
+
+  .form-control.border-primary,
+  .btn-outline-success {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
 }

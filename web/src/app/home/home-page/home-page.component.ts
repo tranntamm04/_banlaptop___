@@ -23,12 +23,12 @@ export class HomePageComponent implements OnInit {
   name: string = '';
 
   images = [
-    {title: 'First Slide', short: 'First Slide Short', src: "../../../assets/bn1.png"},
-    {title: 'Second Slide', short: 'Second Slide Short', src: "../../../assets/bn2.jpg"},
-    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/bn3.jpg"},
-    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/bn4.jpg"},
-    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/bn5.jpg"},
-    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/bn6.png"},
+    {title: 'First Slide', short: 'First Slide Short', src: "../../../assets/banner1.png"},
+    {title: 'Second Slide', short: 'Second Slide Short', src: "../../../assets/banner2.png"},
+    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/banner3.png"},
+    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/banner4.png"},
+    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/banner5.png"},
+    {title: 'Third Slide', short: 'Third Slide Short', src: "../../../assets/banner6.png"},
   ];
   searchItem!: FormGroup;
   indexPagination: number = 1;

@@ -1,4 +1,251 @@
-td {
-  text-align: center;
+/* Font & nền */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
- 
+
+/* Container */
+.container-fluid {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+/* Tiêu đề */
+h3.text-center {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+/* Form tìm kiếm */
+form.row.mt-3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.col-form-label {
+  font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
+  text-align: right;
+  padding-right: 10px;
+  margin-bottom: 5px;
+}
+
+.form-control.border-primary {
+  padding: 8px 12px;
+  border: 1px solid #3498db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2980b9;
+}
+
+/* Nút tìm kiếm & tạo mới */
+.btn-outline-success {
+  padding: 8px 16px;
+  border: 1px solid #27ae60;
+  color: #27ae60;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-outline-success:hover {
+  background-color: #27ae60;
+  color: #fff;
+}
+
+.btn-primary {
+  padding: 8px 16px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+/* Bảng */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  word-break: break-word;
+  max-width: 200px;
+}
+
+.table th {
+  font-weight: 600;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Hình ảnh trong bảng */
+.table td img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Nút hành động */
+.btn-outline-info,
+.btn-outline-warning,
+.btn-outline-danger {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.btn-outline-info {
+  color: #17a2b8;
+  border: 1px solid #17a2b8;
+}
+
+.btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-outline-warning {
+  color: #f1c40f;
+  border: 1px solid #f1c40f;
+}
+
+.btn-outline-warning:hover {
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+/* Giá trị đặc biệt */
+.text-danger {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+/* Phân trang */
+.pagination {
+  margin: 20px 0;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page-link {
+  border-radius: 4px;
+  font-size: 0.95rem;
+  color: #3498db;
+  border: 1px solid #e0e0e0;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.page-item.active .page-link {
+  background-color: #3498db;
+  border-color: #3498db;
+  color: #fff;
+}
+
+.page-link:hover {
+  background-color: #3498db;
+  color: #fff;
+  border-color: #3498db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h3.text-center {
+    font-size: 1.5rem;
+  }
+
+  form.row.mt-3 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .col-form-label {
+    text-align: left;
+    margin-bottom: 5px;
+    padding-right: 0;
+  }
+
+  .form-control.border-primary,
+  .btn-outline-success,
+  .btn-primary {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px 5px;
+    font-size: 0.9rem;
+    max-width: 100px;
+  }
+
+  .table td img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .btn-outline-info,
+  .btn-outline-warning,
+  .btn-outline-danger {
+    padding: 5px 8px;
+    font-size: 0.85rem;
+    margin: 2px;
+  }
+}
