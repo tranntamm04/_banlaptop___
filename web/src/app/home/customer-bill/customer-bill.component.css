@@ -1,0 +1,125 @@
+/* Reset mặc định và cài đặt chung */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Container chính */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #2c3e50;
+  font-weight: 600;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Bảng đơn hàng */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table thead tr {
+  background-color: var(--table-header-bg);
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table .btn-warning {
+  background-color: #ffc107;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.table .btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Trạng thái */
+.table td[style*="color: #ffed26"] {
+  color: var(--warning-color);
+  font-weight: 500;
+}
+
+.table td[style*="color: #3fb846"] {
+  color: var(--success-color);
+  font-weight: 500;
+}
+
+/* Giỏ hàng trống */
+.row.mt-3.mb-5 .text-center {
+  color: var(--danger-color);
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+
+  .autocomplete {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .input-search .btn-primary {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 576px) {
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .tags {
+    justify-content: center;
+  }
+}

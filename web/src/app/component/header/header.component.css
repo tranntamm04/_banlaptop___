@@ -1,0 +1,194 @@
+
+/* ===== MAIN NAVBAR ===== */
+.navbar-modern {
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand/Logo */
+.navbar-brand {
+  font-size: 24px;
+  font-weight: 700;
+  color: #667eea !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand i {
+  font-size: 28px;
+}
+
+/* Navigation Links */
+.navbar-modern .nav-link {
+  color: #2d3748 !important;
+  font-weight: 500;
+  padding: 10px 20px !important;
+  margin: 0 5px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-modern .nav-link:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.navbar-modern .nav-link.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.navbar-modern .nav-link i {
+  font-size: 16px;
+}
+
+/* Login/Logout Buttons */
+.btn-login,
+.btn-logout {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+  color: #fff !important;
+  padding: 10px 24px !important;
+  border-radius: 25px !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+}
+
+.btn-login:hover,
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 87, 108, 0.4);
+}
+
+/* Cart Badge */
+.navbar-modern .badge {
+  position: absolute;
+  top: 5px;
+  right: -5px;
+  padding: 3px 6px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+.nav-link {
+  position: relative;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+  .top-bar-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+  
+  .navbar-modern .nav-link {
+    margin: 5px 0;
+  }
+  
+  .navbar-collapse {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-modern {
+  animation: fadeIn 0.5s ease;
+}
+
+/* ===== DROPDOWN MENU (Account) ===== */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.nav-item .dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background: #fff;
+  min-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 2000;
+  padding: 8px 0;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Hiển thị khi hover hoặc mở */
+.nav-item.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Các mục trong dropdown */
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  color: #2d3748;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 3px 8px;
+}
+
+/* Responsive dropdown */
+@media (max-width: 991px) {
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    padding: 0;
+  }
+  
+  .dropdown-content a {
+    margin: 0;
+    border-radius: 6px;
+    padding: 8px 12px;
+  }
+
+  .nav-item.dropdown:hover .dropdown-content {
+    display: block;
+  }
+}

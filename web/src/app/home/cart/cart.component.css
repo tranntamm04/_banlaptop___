@@ -1,0 +1,119 @@
+/* Căn chỉnh bảng giỏ hàng */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2.title {
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.listSanPham {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.listSanPham th, .listSanPham td {
+  padding: 10px 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.listSanPham th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.listSanPham td img {
+  width: 150px;
+  height: auto;
+}
+
+.cart_quantity_input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin: 0 10px;
+}
+
+.cart_quantity_up, .cart_quantity_down {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cart_quantity_up:hover, .cart_quantity_down:hover {
+  background-color: #e0e0e0;
+}
+
+.fa-trash {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  color: #c0392b;
+}
+
+/* Tổng tiền */
+strong {
+  font-weight: bold;
+  color: #333;
+}
+
+td[style="color: red"] {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Các nút hành động */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+  margin-right: 15px;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* Cải tiến responsive */
+@media (max-width: 768px) {
+  .listSanPham th, .listSanPham td {
+    padding: 8px 10px;
+  }
+
+  .cart_quantity_input {
+    width: 35px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+}

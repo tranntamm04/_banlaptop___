@@ -1,0 +1,122 @@
+<app-header></app-header>
+<div class="row mt-1">
+  <div class="col-lg-12 col-sm-12">
+    <div class="container bg-white mt-3 mb-5" style="border-radius: 2%">
+      <h3 mat-dialog-title class="text-center mt-3">SỬA SẢN PHẨM</h3>
+      <div class="row mt-3"> 
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <form class="row g-3 was-validated" [formGroup]="createProduct" (ngSubmit)="create()">
+            <div class="row">
+              <input type="hidden" formControlName="idProduct">
+              
+              <!-- Tên sản phẩm -->
+              <div class="mb-3 col-md-12">
+                <label class="form-label">Tên Sản Phẩm: <span style="color: red">(*)</span></label>
+                <input type="text" class="form-control" formControlName="productName" placeholder="Nhập tên sản phẩm">
+                <div class="alert alert-danger mt-1" *ngIf="createProduct.get('productName')?.invalid && createProduct.get('productName')?.touched">
+                  Tên sản phẩm không được để trống
+                </div>
+              </div>
+
+              <!-- Giá -->
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Giá: <span style="color: red">(*)</span></label>
+                <input type="text" class="form-control" formControlName="price" placeholder="Nhập giá">
+                <div class="alert alert-danger mt-1" *ngIf="createProduct.get('price')?.invalid && createProduct.get('price')?.touched">
+                  Giá không được để trống
+                </div>
+              </div>
+
+              <!-- Số lượng -->
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Số Lượng: <span style="color: red">(*)</span></label>
+                <input type="text" class="form-control" formControlName="quantity" placeholder="Nhập số lượng">
+                <div class="alert alert-danger mt-1" *ngIf="createProduct.get('quantity')?.invalid && createProduct.get('quantity')?.touched">
+                  Số lượng không được để trống
+                </div>
+              </div>
+
+              <!-- Các trường KHÔNG bắt buộc -->
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Màn Hình:</label>
+                <input type="text" class="form-control" formControlName="screen" placeholder="Nhập màn hình">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Hệ Điều Hành:</label>
+                <input type="text" class="form-control" formControlName="hdh" placeholder="Nhập hệ điều hành">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Camera:</label>
+                <input type="text" class="form-control" formControlName="cameraT" placeholder="Nhập camera">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">CPU:</label>
+                <input type="text" class="form-control" formControlName="cpu" placeholder="Nhập CPU">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">RAM:</label>
+                <input type="text" class="form-control" formControlName="ram" placeholder="Nhập RAM">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">SSD:</label>
+                <input type="text" class="form-control" formControlName="rom" placeholder="Nhập SSD">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">SD Card:</label>
+                <input type="text" class="form-control" formControlName="sdCard" placeholder="Nhập SD Card">
+              </div>
+
+              <div class="mb-3 col-md-6">
+                <label class="form-label">Pin:</label>
+                <input type="text" class="form-control" formControlName="pin" placeholder="Nhập Pin">
+              </div>
+
+              <!-- Khuyến mãi -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Khuyến Mãi: <span style="color: red">(*)</span></label>
+                <select class="form-control" formControlName="idPromotion">
+                  <option value="">Chọn khuyến mãi</option>
+                  <option *ngFor="let p of promotion" [ngValue]="p.idPromotion">{{ p.namePromotion }}</option>
+                </select>
+                <div class="alert alert-danger mt-1" *ngIf="createProduct.get('idPromotion')?.invalid && createProduct.get('idPromotion')?.touched">
+                  Khuyến mãi không được để trống
+                </div>
+              </div>
+
+              <!-- Hãng sản phẩm -->
+              <div class="col-md-6 mb-3">
+                <label class="form-label">Hãng: <span style="color: red">(*)</span></label>
+                <select class="form-control" formControlName="idType">
+                  <option value="">Chọn hãng</option>
+                  <option *ngFor="let pr of productType" [ngValue]="pr.idType">{{ pr.nameType }}</option>
+                </select>
+                <div class="alert alert-danger mt-1" *ngIf="createProduct.get('idType')?.invalid && createProduct.get('idType')?.touched">
+                  Hãng không được để trống
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="col-md-3 mb-3"></div>
+              <div class="col-md-3 mb-3">
+                <button type="reset" class="btn btn-danger" routerLink="/listProduct">Hủy</button>
+              </div>
+              <div class="col-md-3 mb-3">
+                <button type="submit" class="btn btn-success" [disabled]="!createProduct.valid">Lưu Thay Đổi</button>
+              </div>
+              <div class="col-md-3 mb-3"></div>
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

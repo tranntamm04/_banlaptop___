@@ -1,0 +1,119 @@
+<!-- Main Navigation -->
+<nav *ngIf="!isAuthPage" class="navbar navbar-expand-lg navbar-modern">
+  <div class="container-fluid">
+    <!-- Logo/Brand -->
+    <a class="navbar-brand" routerLink="/">
+      <i class="fa fa-shopping-bag"></i>
+      <span>Electronics</span>
+    </a>
+
+    <!-- Toggle button for mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" [attr.data-target]="name === 'ROLE_ADMIN' ? '#navbarAdmin' : '#navbarUser'">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu USER -->
+    <div *ngIf="name !== 'ROLE_ADMIN'" class="collapse navbar-collapse" id="navbarUser">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="fa fa-home"></i> Trang Chủ
+          </a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">
+            <i class="fa fa-info-circle"></i> Giới Thiệu
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">
+            <i class="fa fa-envelope"></i> Liên Hệ
+          </a>
+        </li>
+      </ul>
+<!-- Cuối user -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Nút Giỏ Hàng -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cart">
+            <i class="fa fa-shopping-cart"></i>
+            Giỏ hàng
+            <span class="badge bg-danger ms-1">{{ totalItem }}</span>
+          </a>
+        </li>
+
+        <!-- Dropdown Tài khoản (khi chưa đăng nhập) -->
+        <li class="nav-item" *ngIf="name === ''">
+          <a class="nav-link" id="btnTaiKhoan" routerLink="/login">
+            <i class="fa fa-user"></i>
+            Tài khoản
+          </a>
+        </li>
+
+        <!-- Dropdown Tài khoản (khi đã đăng nhập) -->
+        <li class="nav-item dropdown" *ngIf="name !== ''">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="fa fa-user"></i>
+            {{ name }}
+          </a>
+          <ul class="dropdown-content">
+            <a *ngIf="name!=='admin'" routerLink="/customerBill">Đơn hàng của tôi</a>
+            <a *ngIf="name!=='admin'" routerLink="/changePass">Đổi Mật Khẩu</a>
+            <a class="dropdown-item text-danger" (click)="logout()">Đăng Xuất</a>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Menu ADMIN -->
+    <div *ngIf="name === 'ROLE_ADMIN'" class="collapse navbar-collapse" id="navbarAdmin">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" (click)="on()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="fa fa-home"></i> Trang Chủ
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/product-type" routerLinkActive="active">
+            <i class="fa fa-tags"></i> Danh Mục
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/listProduct" routerLinkActive="active">
+            <i class="fa fa-th-large"></i> Sản Phẩm
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/listBill" routerLinkActive="active">
+            <i class="fa fa-file-text-o"></i> Đơn Hàng
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/listCustomer" routerLinkActive="active">
+            <i class="fa fa-male"></i> Khách Hàng
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/listEmployee" routerLinkActive="active">
+            <i class="fa fa-users"></i> Nhân Viên
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/chart" routerLinkActive="active">
+            <i class="fa fa-bar-chart-o"></i> Thống Kê
+          </a>
+        </li>
+      </ul>
+      
+      <!-- Admin actions -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link btn-logout" (click)="logout()">
+            <i class="fa fa-sign-out"></i> Đăng Xuất
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row mt-3 mb-5" *ngIf="billList.length !== 0">
+      <div class="col-lg-12 mb-3">
+        <h2 class="text-center">Đơn hàng của tôi</h2>
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr style="text-align:center;vertical-align:middle;font-size:20px;background-color:coral;color:black!important">
+          <th style="font-weight:600">STT</th>
+          <th style="font-weight:600">Ngày lập</th>
+          <th style="font-weight:600">Người nhận</th>
+          <th style="font-weight:600">SDT</th>
+          <th style="font-weight:600">Địa chỉ</th>
+          <th style="font-weight:600">Phương thức TT</th>
+          <th style="font-weight:600">Tổng tiền</th>
+          <th style="font-weight:600">Trạng thái</th>
+          <th style="font-weight:600">Xem chi tiết</th>
+        </tr>
+        </thead>
+        <tbody *ngIf="billList.length>0">
+        <tr *ngFor="let b of billList, let i = index">
+          <td style="text-align:center;vertical-align:middle;">{{i + 1}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{b.dateFounded}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{b.received}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{b.phone}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{b.address}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{b.paymentMethods}}</td>
+          <td style="text-align:center;vertical-align:middle;">{{numToString(b.totalMoney)}}<sup>đ</sup></td>
+          <td style="text-align:center;vertical-align:middle;color: #ffed26" *ngIf="b.status===1">Đang xử lý</td>
+          <td style="text-align:center;vertical-align:middle;color: #3fb846" *ngIf="b.status===2">Thành công</td>
+          <td style="text-align:center;vertical-align:middle;">
+            <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" (click)="xem(b.idBill)">
+              Xem
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class="row mt-3 mb-5" *ngIf="billList.length ===0">
+    <div class="col-lg-12 mb-3">
+      <h3 class="text-center">Đơn Hàng Trống - Mua Hàng Đi Bạn Ơi ^^!</h3>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

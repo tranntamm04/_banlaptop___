@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container">
+  <h2 class="title text-center">Giỏ hàng của bạn</h2>
+  <div class="row mt-3">
+    <table class="listSanPham">
+      <thead >
+      <tr>
+        <th>Sản Phẩm</th>
+        <th>Giá</th>
+        <th>Số Lượng</th>
+        <th>Thành Tiền</th>
+        <th>Xóa</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr *ngFor="let p of product; let i = index">
+        <td><img [src]="'assets/img/' +p.avt" style="width: 200px;height: 180px"/><br>
+          {{p.productName}}</td>
+        <td>{{numToString(p.price)}}<sup>đ</sup></td>
+        <td>
+          <button class="cart_quantity_up" (click)="quantity_up(p.idProduct)"> + </button>
+          <input class="cart_quantity_input text-center" type="text" name="quantity" [value]="p.quantity" autocomplete="off"
+                 size="2" disabled>
+          <button class="cart_quantity_down" (click)="quantity_down(p.idProduct)"> - </button></td>
+        <td>{{numToString(p.price * p.quantity)}}<sup>đ</sup></td>
+        <td><i class="fa fa-trash" (click)="xoaSP(p.idProduct)"></i></td>
+      </tr>
+      <tr style="font-weight: bold;text-align: center">
+        <td colspan="3">TỔNG TIỀN:</td>
+        <td style="color: red">{{numToString(grandTotal)}}<sup>đ</sup></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <button class="btn btn-primary" (click)="thanhToan()"><i class="fa fa-usd"></i>Thanh Toán</button>
+          <button class="btn btn-danger" (click)="xoaHet()"><i class="fa fa-trash-o"></i>Xóa Hết</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>
